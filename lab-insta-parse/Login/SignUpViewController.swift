@@ -36,11 +36,11 @@ class SignUpViewController: UIViewController {
         }
 
         // TODO: Pt 1 - Parse user sign up
-        var newUser = User();
-        newUser.email = email;
-        newUser.username = username;
-        newUser.password = password;
-        
+        var newUser = User()
+        newUser.username = username
+        newUser.email = email
+        newUser.password = password
+
         newUser.signup { [weak self] result in
 
             switch result {
@@ -56,15 +56,6 @@ class SignUpViewController: UIViewController {
                 self?.showAlert(description: error.localizedDescription)
             }
         }
-
-
-    }
-
-    private func showAlert(description: String?) {
-        let alertController = UIAlertController(title: "Unable to Sign Up", message: description ?? "Unknown error", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(action)
-        present(alertController, animated: true)
     }
 
     private func showMissingFieldsAlert() {
